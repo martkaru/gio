@@ -98,6 +98,12 @@ type Driver interface {
 
 	// Close the window.
 	Close()
+
+	MakeActive()
+
+	Focus()
+
+	SetForeground()
 }
 
 type windowRendezvous struct {

@@ -296,6 +296,7 @@ var (
 	_TranslateMessage            = user32.NewProc("TranslateMessage")
 	_UnregisterClass             = user32.NewProc("UnregisterClassW")
 	_UpdateWindow                = user32.NewProc("UpdateWindow")
+	_SetActiveWindow             = user32.NewProc("SetActiveWindow")
 
 	shcore            = syscall.NewLazySystemDLL("shcore")
 	_GetDpiForMonitor = shcore.NewProc("GetDpiForMonitor")
@@ -665,6 +666,11 @@ func UnregisterClass(cls uint16, hInst syscall.Handle) {
 func UpdateWindow(hwnd syscall.Handle) {
 	_UpdateWindow.Call(uintptr(hwnd))
 }
+
+func SetActiveWindow(hwnd syscall.Handle) {
+	_SetActiveWindow.Call(uintptr((hwnd)))
+}
+
 
 // issue34474KeepAlive calls runtime.KeepAlive as a
 // workaround for golang.org/issue/34474.

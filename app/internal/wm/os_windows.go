@@ -538,6 +538,18 @@ func (w *window) Option(opts *Options) {
 	}
 }
 
+func (w *window) Focus() {
+	windows.SetFocus(w.hwnd)
+}
+
+func (w *window) MakeActive() {
+	windows.SetActiveWindow(w.hwnd)
+}
+
+func (w *window) SetForeground() {
+	windows.SetForegroundWindow(w.hwnd)
+}
+
 func (w *window) setOptions() {
 	w.mu.Lock()
 	opts := w.opts
