@@ -101,8 +101,15 @@ type Driver interface {
 
 	// Close the window.
 	Close()
+
 	// Wakeup wakes up the event loop and sends a WakeupEvent.
 	Wakeup()
+
+	MakeActive()
+
+	Focus()
+
+	SetForeground()
 }
 
 type windowRendezvous struct {

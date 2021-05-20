@@ -228,6 +228,19 @@ func (w *Window) Invalidate() {
 	}
 }
 
+func (w *Window) MakeActive() {
+	w.driver.MakeActive()
+}
+
+func (w *Window) Focus() {
+	w.driver.Focus()
+}
+
+func (w *Window) SetForeground() {
+	w.driver.SetForeground()
+}
+
+
 // Option applies the options to the window.
 func (w *Window) Option(opts ...Option) {
 	go w.Run(func() {

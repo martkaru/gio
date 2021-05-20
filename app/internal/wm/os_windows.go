@@ -515,6 +515,18 @@ func (w *window) readClipboard() error {
 	return nil
 }
 
+func (w *window) Focus() {
+	windows.SetFocus(w.hwnd)
+}
+
+func (w *window) MakeActive() {
+	windows.SetActiveWindow(w.hwnd)
+}
+
+func (w *window) SetForeground() {
+	windows.SetForegroundWindow(w.hwnd)
+}
+
 func (w *window) Option(opts *Options) {
 	w.opts = opts
 	if o := opts.Size; o != nil {
